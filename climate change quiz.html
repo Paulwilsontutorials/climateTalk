@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Climate Change Quiz - Malawi</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      padding: 40px;
+      background-color: #f4f9f9;
+      color: #333;
+    }
+    h1 {
+      text-align: center;
+      color: #2a7a7b;
+    }
+    .question {
+      margin: 20px 0;
+      padding: 20px;
+      background: #fff;
+      border-radius: 10px;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+    }
+    .options label {
+      display: block;
+      margin: 5px 0;
+      cursor: pointer;
+    }
+    button {
+      margin-top: 20px;
+      padding: 10px 20px;
+      background-color: #2a7a7b;
+      color: white;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+    }
+    #result {
+      margin-top: 30px;
+      font-size: 18px;
+      font-weight: bold;
+      text-align: center;
+    }
+  </style>
+</head>
+<body>
+  <h1>Climate Change Quiz - Malawi</h1>
+  <form id="quizForm">
+   
+  </form>
+  <div id="result"></div>
+
+  <script>
+    const questions = [
+      { q: "What percentage of Malawians rely on rain-fed agriculture?", options: ["50%", "70%", "92%", "80%"], answer: 2 },
+      { q: "Which sector contributes most to greenhouse gas emissions in Malawi?", options: ["Transport", "Forestry", "Agriculture", "Energy"], answer: 2 },
+      { q: "What renewable energy source is being promoted in Malawi?", options: ["Hydrogen", "Nuclear", "Solar", "Coal"], answer: 2 },
+      { q: "What is a key cause of deforestation in Malawi?", options: ["Tourism", "Fishing", "Charcoal production", "Construction"], answer: 2 },
+      { q: "Which farming practice is part of climate-smart agriculture in Malawi?", options: ["Monocropping", "Slash and burn", "Agroforestry", "Overgrazing"], answer: 2 },
+      { q: "What climate effect is increasingly affecting Malawi?", options: ["Hurricanes", "Snowfall", "Droughts and floods", "Tsunamis"], answer: 2 },
+      { q: "What is Malawi's government promoting to restore degraded forests?", options: ["Urbanization", "Mining", "Reforestation", "Logging"], answer: 2 },
+      { q: "How does climate change impact food security in Malawi?", options: ["Increases food production", "Improves soil fertility", "Reduces crop yields", "Boosts exports"], answer: 2 },
+      { q: "Which emission comes from landfills in Malawi?", options: ["CO2", "Ozone", "Methane", "Nitrogen"], answer: 2 },
+      { q: "By 2050, how much GDP loss could Malawi face due to climate change?", options: ["2-5%", "8-16%", "1-3%", "10-12%"], answer: 1 }
+    ];
+
+    const form = document.getElementById('quizForm');
+
+    questions.forEach((question, index) => {
+      const div = document.createElement('div');
+      div.className = 'question';
+      div.innerHTML = `<p>${index + 1}. ${question.q}</p>`;
+      const optionsDiv = document.createElement('div');
+      optionsDiv.className = 'options';
+      question.options.forEach((option, i) => {
+        optionsDiv.innerHTML += `<label><input type="radio" name="q${index}" value="${i}"> ${option}</label>`;
+      });
+      div.appendChild(optionsDiv);
+      form.appendChild(div);
+    });
+
+    const submitBtn = document.createElement('button');
+    submitBtn.textContent = 'Submit Quiz';
+    submitBtn.type = 'button';
+    submitBtn.onclick = calculateScore;
+    form.appendChild(submitBtn);
+
+    function calculateScore() {
+      let score = 0;
+      questions.forEach((q, index) => {
+        const selected = document.querySelector(`input[name="q${index}"]:checked`);
+        if (selected && parseInt(selected.value) === q.answer) score++;
+      });
+      const result = document.getElementById('result');
+      let comment = '';
+      if (score === 10) comment = 'Excellent! You have a strong understanding of climate change in Malawi.';
+      else if (score >= 7) comment = 'Good job! You have a good grasp but can still learn more.';
+      else if (score >= 4) comment = 'Fair. Consider reading more on climate issues in Malawi.';
+      else comment = 'Needs improvement. Please review the information and try again.';
+      result.innerHTML = `You scored ${score}/10. <br>${comment}`;
+    }
+  </script>
+</body>
+</html>

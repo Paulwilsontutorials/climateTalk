@@ -1,0 +1,343 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Climate Change in Malawi</title>
+  <meta name="description" content="Informative website on climate change with focus on Malawi: explanations, news, resources, and ways to take action.">
+  <meta name="keywords" content="climate change, Malawi, environment, sustainability, global warming">
+  <link href="fivo\climate change ico.png" rel="stylesheet">
+  <style>
+    * { box-sizing: border-box; }
+    body { font-family: 'Roboto', sans-serif; margin: 0; padding: 0; background: #eef2f3; color: #333; }
+    .container { max-width: 1000px; margin: auto; padding: 20px; background: #fff; box-shadow: 0 4px 8px rgba(0,0,0,0.1); border-radius: 8px; }
+
+    .nav-toggle { display: none; }
+    .nav-toggle-label { display: block; position: fixed; top: 20px; left: 20px; z-index: 1000; cursor: pointer; }
+    .nav-toggle-label span, .nav-toggle-label span::before, .nav-toggle-label span::after {
+      display: block; background: #2196F3; height: 3px; width: 25px; border-radius: 2px; position: relative;
+    }
+    .nav-toggle-label span::before, .nav-toggle-label span::after { content: ''; position: absolute; }
+    .nav-toggle-label span::before { top: -8px; }
+    .nav-toggle-label span::after { top: 8px; }
+    nav { position: fixed; top: 0; left: -260px; width: 260px; height: 100%; background: #fff; border-right: 1px solid #ddd; padding-top: 60px; transition: all 0.5s ease-in-out; overflow-y: auto; }
+    .nav-toggle:checked + .nav-toggle-label + nav { left: 0; }
+    nav ul { list-style: none; padding: 0; margin: 0; }
+    nav li { position: relative; }
+    nav > ul > li { border-bottom: 1px solid #eee; }
+    nav a { display: block; padding: 12px 20px; color: #2196F3; text-decoration: none; font-weight: 500; }
+    nav a:hover { background: #eef2f3; }
+
+    nav li > a.have-children::after {
+      content: '▼';
+      float: right;
+      transition: transform 0.3s;
+    }
+    nav li.open > a.have-children::after {
+      transform: rotate(-180deg);
+    }
+    nav ul.submenu {
+      max-height: 0; overflow: hidden; transition: max-height 0.3s ease; background: #f9f9f9;
+    }
+    nav li.open > ul.submenu { max-height: 500px; }
+    nav ul.submenu li a { padding-left: 40px; color: #555; }
+
+    h1, h2, h3, h4 { color: #2196F3; }
+    section { margin-bottom: 50px; }
+    p, ul.default-list { margin-bottom: 10px; padding-left: 20px; }
+
+    .callout, .call-to-act { padding: 15px; border-radius: 6px; margin: 20px 0; font-weight: 500; }
+    .callout { background: #d7f0fd; border-left: 6px solid #2196F3; }
+    .call-to-act { background: #fff3e0; border-left: 6px solid #fb8c00; }
+
+    .btn, button { padding: 10px 20px; border: none; border-radius: 5px; cursor: pointer; font-size: 1em; }
+    .btn-primary { background: #2196F3; color: #fff; }
+    .btn-secondary { background: #fb8c00; color: #fff; }
+
+    .video-container, .impact-img-container, .gallery-img-container {
+      position: relative;
+      margin-bottom: 20px;
+    }
+    .video-container video,
+    .impact-img,
+    .gallery-img {
+      width: 100%;
+      height: auto;
+      display: block;
+      border-radius: 5px;
+    }
+    .video-caption,
+    .impact-img-caption {
+      position: absolute;
+      bottom: 15px;
+      left: 15px;
+      background: rgba(0,0,0,0.6);
+      color: #fff;
+      padding: 8px 12px;
+      border-radius: 5px;
+      font-size: 16px;
+    }
+
+    form { display: flex; flex-direction: column; gap: 10px; }
+    input, textarea { padding: 10px; border: 1px solid #ccc; border-radius: 4px; }
+
+    footer { padding: 30px; background: #f1f1f1; border-top: 1px solid #ddd; }
+    .site-footer { background: #222; color: #ccc; text-align: center; padding: 15px; font-size: 14px; }
+    .social-icons a { margin: 0 8px; color: #2196F3; text-decoration: none; }
+
+    .page-break { margin: 40px 0; text-align: center; }
+    .blue-line { border: none; border-top: 2px solid #2196F3; margin: 5px 0; }
+    .logo { width: 70px; height: 70px; border-radius: 50%; margin: 8px; }
+
+    @media (max-width: 768px) {
+      .container { padding: 15px; }
+      .video-caption, .impact-img-caption { font-size: 14px; padding: 6px 10px; }
+    }
+  </style>
+</head>
+<body>
+  <input type="checkbox" id="nav-toggle" class="nav-toggle">
+  <label for="nav-toggle" class="nav-toggle-label"><span></span></label>
+  <nav>
+    <ul>
+      <li>
+        <a href="#about" class="have-children">mission</a>
+        <ul class="submenu">
+          <li><a href="#about">Mission & Purpose</a></li>
+          <li><a href="#team">Our Team</a></li>
+        </ul>
+      </li>
+      <li>
+        <a href="#explanation" class="have-children">What is Climate Change</a>
+        <ul class="submenu">
+          <li><a href="#explanation">Causes</a></li>
+          <li><a href="#explanation">Effects</a></li>
+        </ul>
+      </li>
+      <li>
+        <a href="#news" class="have-children">News & Updates</a>
+        <ul class="submenu">
+          <li><a href="#news">Latest Articles</a></li>
+          <li><a href="#news">Research</a></li>
+        </ul>
+      </li>
+      <li>
+        <a href="#blog" class="have-children">Blog</a>
+        <ul class="submenu">
+          <li><a href="#blog">Articles</a></li>
+          <li><a href="#blog">Opinion Pieces</a></li>
+        </ul>
+      </li>
+      <li>
+        <a href="#resources" class="have-children">Resources</a>
+        <ul class="submenu">
+          <li><a href="#resources">Reports</a></li>
+          <li><a href="#resources">Guides</a></li>
+        </ul>
+      </li>
+      <li>
+        <a href="#tools" class="have-children">Interactive Tools</a>
+        <ul class="submenu">
+          <li><a href="#tools">Carbon Calculator</a></li>
+          <li><a href="#tools">Quiz</a></li>
+        </ul>
+      </li>
+      <li>
+        <a href="#forum" class="have-children">Community Forum</a>
+        <ul class="submenu">
+          <li><a href="#forum">Discussions</a></li>
+          <li><a href="#forum">Events</a></li>
+        </ul>
+      </li>
+      <li>
+        <a href="#action" class="have-children">Get Involved</a>
+        <ul class="submenu">
+          <li><a href="#action">Donate</a></li>
+          <li><a href="#action">Volunteer</a></li>
+        </ul>
+      </li>
+
+      <li>
+        <a href="abou us.html" class="have-children">about us</a>
+        <ul class="submenu">
+          <li><a href="abou us.html">contact</a></li>
+        </ul>
+      </li>
+      <li>
+        <a href="climate_change_malawi.html" class="have-children">full issue</a>
+        <ul class="submenu">
+          <li><a href="climate_change_malawi.html">read a full issue</a></li>
+        </ul>
+      </li>
+  </nav>
+
+  <div class="container">
+  
+    <div class="video-container">
+      <video class="intro-video" autoplay muted loop controls poster="image's/deforestation-in-malawi2.jpg">
+        <source src="video/EFFECTS_OF_CLIMATE_CHANGE_IN_MALAWI(360p).mp4" type="video/mp4">
+        Your browser does not support the video tag.
+      </video>
+      <div class="video-caption">Understanding the Impact of Climate Change in Malawi</div>
+    </div>
+
+   
+<h1><img class="logo" src="fivo/climate change ico.png"> climate change</h1>
+<section id="about">
+      <h1>About This Website</h1>
+      <p>Our mission is to educate, empower, and engage communities in understanding and addressing climate change, with a focus on Malawi.</p>
+    </section>
+    
+
+    <section id="explanation">
+      <h2>Climate Change Explained</h2>
+      <p>Climate change refers to long-term shifts in temperatures and weather patterns, primarily driven by greenhouse gas emissions from human activities.</p>
+      <div class="callout"><strong>Key Causes:</strong> Fossil fuels, deforestation, industrial processes, and agriculture.</div>
+    </section>
+
+    <section id="news">
+      <h2>News & Updates</h2>
+      <p><em>Stay tuned for the latest research, policy developments, and events on climate change.</em></p>
+    </section>
+
+    <section id="blog">
+      <h2>Blog & Articles</h2>
+      <ul>
+        <li><a href="https://documents1.worldbank.org">Building Resilience: Drought-Tolerant Crops in Malawi</a></li>
+        <li><a href="climate_change_malawi.html">read full issue</a></li>
+        <li><a href="https://offsetguide.org">Understanding Carbon Offsetting</a></li>
+      </ul>
+    </section>
+
+    <section id="tools">
+      <h2>Interactive Tools</h2>
+      <ul>
+        <li><a href="https://carbonfootprint.com">Carbon Footprint Calculator</a></li>
+        <li><a href="climate change quiz.html">Climate Quiz</a></li>
+      </ul>
+    </section>
+
+    <section id="forum">
+      <h2>Community Forum</h2>
+      <p>Join discussions, share experiences, and collaborate on climate solutions.</p>
+    </section>
+
+<br>
+
+    <div>
+     <hr class="blue-line">
+     <hr class="blue-line">
+    </div>
+
+    <section id="impacts-malawi">
+      <h2>Impacts on Malawi</h2>
+      <div class="impact-img-container">
+        <img src="image's/deforestation-in-malawi.jpg" alt="Smallholder farmer in field" class="impact-img" height="400px" width="800px">
+        <div class="impact-img-caption">Drought affecting agriculture yields</div>
+      </div>
+      <h3>Agriculture & Food Security</h3>
+      <p>Droughts recur every 5–25 years, severely reducing crop yields.</p>
+<br>
+
+      <div class="impact-img-container">
+        <img src="image's/MalawiWaterCrisis2022-HeaderImg.jpg" alt="Dry lake bed" class="impact-img" height="400px" width="800px">
+        <div class="impact-img-caption">Water scarcity from falling lake levels</div>
+      </div>
+      <h3>Water Resources</h3>
+      <p>Lake Malawi levels are falling, affecting fisheries and irrigation.</p>
+      <br>
+<div class="impact-img-container">
+        <img src="image's/UN0821899.jpg.jpeg" alt="Woman collecting water" class="impact-img" height="400px" width="800px">
+        <div class="impact-img-caption">Health risks from malnutrition</div>
+      </div>
+      <h3>Health & Society</h3>
+      <p>Crop failures drive malnutrition and increase burdens on women for water and firewood collection.</p>
+    </section>
+<br>
+
+    <section id="case-study">
+      <h2>Case Study: Lake Chilwa Region</h2>
+      <div class="impact-img-container">
+        <img src="image's/chilwa-wateraid-768x439.jpg" alt="Lake Chilwa landscape" class="impact-img">
+        <div class="impact-img-caption">Climate adaptation in Lake Chilwa Region</div>
+      </div>
+      <p>UNDP-led project introduced raised garden beds, rainwater harvesting, and community early warning alerts, increasing crop resilience by 30% during dry spells.</p>
+    </section>
+<br>
+  <div>
+    <hr class="blue-line">
+     <hr class="blue-line">
+  </div>
+    <section id="gallery">
+      <h2>Photo Gallery</h2>
+      <div>
+        <img src="image's\CITW-mw-2019-trees-planting-exercise-1024x768.jpg" alt="Youth climate march" class="impact-img" height="400px" width="800px">
+        <p>Youth participating in a climate awareness march in Lilongwe.</p>
+      </div>
+      <div>
+        <img src="image's/Minister-installs-a-solar-panel.jpg" alt="Solar panel installation" height="400px" width="800px">
+        <p>Solar energy project powering rural schools.</p>
+      </div>
+    </section>
+
+    <footer>
+      <section id="action">
+      <h2>Take Action</h2>
+      <button class="btn btn-primary">Donate</button>
+      <div class="call-to-act">
+        <strong>Get Involved:</strong> Volunteer, reduce your carbon footprint, or join our email list.
+      </div>
+      <form>
+        <h4>Sign Petition</h4>
+        <label for="fullname">Full Name</label>
+        <input type="text" id="fullname" placeholder="Full Name" required>
+        <label for="email">Email Address</label>
+        <input type="email" id="email" placeholder="Email Address" required>
+        <label for="message">Your message or comments</label>
+        <textarea id="message" rows="4" placeholder="Your message or comments"></textarea>
+        <button type="submit" class="btn btn-secondary">Submit</button>
+      </form>
+    </section>
+      <h3>Resources</h3>
+      <ul>
+        <li><a href="https://www.fao.org/" target="_blank">FAO: Impact of Drought in Malawi</a></li>
+        <li><a href="https://www.adaptation-undp.org/" target="_blank">UNDP Adaptation Resources</a></li>
+      </ul>
+      <div class="social-icons">
+        <a href="https://www.facebook.com/profile.php?id=100086952110690">Facebook</a>|
+        <a href="https://www.linkedin.com/in/paul-ta-da-wilson-5a607a365?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app">inkedin</a>|
+        <a href="https://www.instagram.com/paul_d.aye?igsh=MW5wbDRqZmVjbzVzaw==">Instagram</a>|
+        <a href="abou us.html">about us</a>
+      </div>
+    </footer>
+  </div>
+
+  <div class="site-footer">
+    &copy; 2025 Climate Change in Malawi | All rights reserved.
+  </div>
+
+  <script>
+   
+    const nav = document.querySelector('nav');
+
+     nav.addEventListener('mouseover', () => {
+     nav.style.transform = 'translateX(10px)';
+     });
+
+      nav.addEventListener('mouseout', () => {
+      nav.style.transform = '';
+     });
+    document.querySelectorAll('nav .have-children').forEach(link => {
+      link.addEventListener('click', e => {
+        e.preventDefault();
+        const parent = link.parentElement;
+        parent.classList.toggle('open');
+      });
+    });
+   
+    document.querySelectorAll('nav ul.submenu a').forEach(link => {
+      link.addEventListener('click', () => document.getElementById('nav-toggle').checked = false);
+    });
+  </script>
+</body>
+</html>
